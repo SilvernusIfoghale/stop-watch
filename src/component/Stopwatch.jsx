@@ -15,6 +15,9 @@ export default function Stopwatch() {
     setTimerInterval(setInterval(run, 10));
   };
 
+  //handling Error on DoubleClick
+  const [isDisabled, setIsDisabled] = useState(false);
+
   //time variables
   let updatedMs = time.ms,
     updatedS = time.s,
@@ -23,6 +26,7 @@ export default function Stopwatch() {
 
   //Start-Resume Stopwatch
   const run = () => {
+    setIsDisabled(true);
     if (updatedM === 60) {
       updatedH++;
       updatedS = 0;
@@ -46,6 +50,7 @@ export default function Stopwatch() {
 
   //Reset stopwatch
   const handleReset = () => {
+    setIsDisabled(false);
     clearInterval(timerInterval);
     setTime({
       ms: 0,
@@ -57,6 +62,7 @@ export default function Stopwatch() {
 
   //stop-pause stopwatch
   const handleStop = () => {
+    setIsDisabled(false);
     clearInterval(timerInterval);
   };
   return (
@@ -77,11 +83,13 @@ export default function Stopwatch() {
         </div>
         <div className="flex gap-4 mt-10 text-2xl">
           <button
+            disabled={isDisabled}
             onClick={handleStart}
             className="w-28 h-14 bg-white text-indigo-700 rounded-lg font-semibold hover:bg-gray-200"
           >
             Start
           </button>
+
           <button
             onClick={handleStop}
             className="w-28 h-14 bg-white text-indigo-700 rounded-lg font-semibold hover:bg-gray-200"
