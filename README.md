@@ -1,7 +1,7 @@
 
 # Stopwatch 
 
-A simple yet functinaly stopwatch, display screen for viewing elapsed time, buttons for start, stop and reset the stopwatch accordingly,.... 
+A simple yet functional stopwatch, display screen for viewing elapsed time, buttons for start, stop and reset the stopwatch accordingly,.... 
 
 
 ## Demo
