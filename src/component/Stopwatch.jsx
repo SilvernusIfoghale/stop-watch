@@ -54,45 +54,50 @@ export default function Stopwatch() {
   };
   return (
     <>
-      <div className="flex">
-        <div className="w-10 h-10 border-gray-400 border-2 flex justify-center items-center m-4">
-          <p className="font-semibold text-2xl">
-            {time.h >= 10 ? time.h : "0" + time.h}
-          </p>
+      <div className="flex flex-col items-center justify-center h-[100vh]">
+        <div className="flex">
+          <div className="w-20 h-24 border-gray-400 border-2 rounded-3xl flex justify-center items-center m-2">
+            <p className="font-semibold text-2xl">
+              {time.h >= 10 ? time.h : "0" + time.h}
+            </p>
+          </div>
+
+          <div className="w-20 h-24 border-gray-400 border-2 rounded-3xl flex justify-center items-center m-1">
+            <p className="font-semibold text-2xl">
+              {time.m >= 10 ? time.m : "0" + time.m}
+            </p>
+          </div>
+          <div className="w-20 h-24 border-gray-400 border-2 rounded-3xl flex justify-center items-center m-1">
+            <p className="font-semibold text-2xl">
+              {time.s >= 10 ? time.s : "0" + time.s}
+            </p>
+          </div>
+          <div className="w-20 h-24 border-gray-400 border-2 rounded-3xl flex justify-center items-center m-1">
+            <p className="font-semibold text-2xl">
+              {time.ms >= 10 ? time.ms : "0" + time.ms}
+            </p>
+          </div>
         </div>
-        <div className="w-10 h-10 border-gray-400 border-2 flex justify-center items-center m-4">
-          <p className="font-semibold text-2xl">
-            {time.m >= 10 ? time.m : "0" + time.m}
-          </p>
+        <div className="">
+          <button
+            onClick={handleStart}
+            className="w-24 h-10 bg-blue-500 text-white rounded-lg"
+          >
+            Start
+          </button>
+          <button
+            onClick={handleReset}
+            className="w-24 h-10 bg-blue-500 text-white rounded-lg"
+          >
+            Reset
+          </button>
+          <button
+            onClick={handleStop}
+            className="w-24 h-10 bg-blue-500 text-white rounded-lg"
+          >
+            Stop
+          </button>
         </div>
-        <div className="w-10 h-10 border-gray-400 border-2 flex justify-center items-center m-4">
-          <p className="font-semibold text-2xl">
-            {time.s >= 10 ? time.s : "0" + time.s}
-          </p>
-        </div>
-        <div className="w-10 h-10 border-gray-400 border-2 flex justify-center items-center m-4">
-          <p className="font-semibold text-2xl">
-            {time.ms >= 10 ? time.ms : "0" + time.ms}
-          </p>
-        </div>
-        <button
-          onClick={handleStart}
-          className="w-24 h-10 bg-blue-500 text-white rounded-lg"
-        >
-          Start
-        </button>
-        <button
-          onClick={handleReset}
-          className="w-24 h-10 bg-blue-500 text-white rounded-lg"
-        >
-          Reset
-        </button>
-        <button
-          onClick={handleStop}
-          className="w-24 h-10 bg-blue-500 text-white rounded-lg"
-        >
-          Stop
-        </button>
       </div>
     </>
   );
